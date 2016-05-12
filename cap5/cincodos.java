@@ -3,43 +3,56 @@ package cap5;
     import java.util.Scanner;
 public class cincodos {
     public static void main(String[]args){
-        int num1,num2,num3,num4,num5,num6=0;
+        int num[]=new int[6];
         int lot[];
         int aciertos=0;
         try (Scanner intro= new Scanner(System.in)){
-            System.out.println("ingrese numero 1 a jugar");
-            num1=intro.nextInt();
-            System.out.println("ingrese numero 2 a jugar");
-            num2=intro.nextInt();
-            System.out.println("ingrese numero 3 a jugar");
-            num3=intro.nextInt();
-            System.out.println("ingrese numero 4 a jugar");
-            num4=intro.nextInt();
-            System.out.println("ingrese numero 5 a jugar");
-            num5=intro.nextInt();
-            System.out.println("ingrese numero 6 a jugar");
-            num6=intro.nextInt();
+          
+        for (int i = 0; i < num.length; i++) {
+            System.out.println("ingrese numero "+(i+1)+" a jugar");  
+            do{
+               num[i]=intro.nextInt();
+               if(num[i]<0||num[i]>41)
+                    System.out.println("WARNING numero ingresado no valido");
+               if(num[i]==num[0]||num[i]==num[1]||num[i]==num[2]||num[i]==num[3]||num[i]==num[4])
+                    System.out.println("el numero ingresado ya esta en su lista de numeros ingrese otro");
+            }while(num[i]<0||num[i]>41||num[i]==num[0]||num[i]==num[1]||num[i]==num[2]||num[i]==num[3]||num[i]==num[4]);
+       }
+  
         }
+        //obtenemos los numeros de azar
         lot =new int[6];
-        lot[0]=(int)(Math.random()*40)+1;
-        lot[1]=(int)(Math.random()*40)+1;
-        lot[2]=(int)(Math.random()*40)+1;
-        lot[3]=(int)(Math.random()*40)+1;
-        lot[4]=(int)(Math.random()*40)+1;
-        lot[5]=(int)(Math.random()*40)+1;
+        for (int i = 0; i < lot.length; i++) {
+            lot[i]=(int)(Math.random()*41)+1;
+        }
         for(int i=0;i<6; i++){
             System.out.println("el primer numero ganador es:"+lot[i]);
-            if(lot[i]==num1||lot[i]==num2||lot[i]==num3||lot[i]==num4||lot[i]==num5||lot[i]==num6){
-                aciertos=aciertos+1;
+            for (int j = 0; j < num.length; j++) {
+            if(lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]){
+                aciertos=aciertos+1; 
+            }
+
             }
         }
+        
         System.out.println("la cantidad de aciertos es de: "+aciertos);
-        if(aciertos==8){
-            System.out.println("a obtenido todo el dinero sorteado");
-        }else{
-            if(aciertos==7){
-                
-            }
+        switch (aciertos) {
+            case 6:
+                System.out.println("a obtenido el premio mayor");
+                break;
+            case 5:
+                System.out.println("a ganado el 2do premio");
+                break;
+            case 4:
+                System.out.println("a ganado el 3r premio");
+                break;
+            case 3:
+                System.out.println("le han debuelto el dinero invertido");
+                break;
+            default:
+                System.out.println("no a ganado nada");
+                break;
+
         }
     }   
 }
