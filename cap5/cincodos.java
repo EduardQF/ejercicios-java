@@ -34,6 +34,7 @@ public class cincodos {
             for (int j = 0; j < num.length; j++) {
             if(lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]||lot[i]==num[j]){
                 aciertos=aciertos+1; 
+                break;
             }
 
             }
