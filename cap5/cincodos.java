@@ -14,9 +14,13 @@ public class cincodos {
                num[i]=intro.nextInt();
                if(num[i]<0||num[i]>41)
                     System.out.println("WARNING numero ingresado no valido");
-               if(num[i]==num[0]||num[i]==num[1]||num[i]==num[2]||num[i]==num[3]||num[i]==num[4])
-                    System.out.println("el numero ingresado ya esta en su lista de numeros ingrese otro");
-            }while(num[i]<0||num[i]>41||num[i]==num[0]||num[i]==num[1]||num[i]==num[2]||num[i]==num[3]||num[i]==num[4]);
+            }while(num[i]<0||num[i]>41);
+             while(cont<i||num[i]!=num[cont]){
+                //for(cont=0;cont<i;cont++)
+                if(num[i]==num[cont])
+                    i--;
+                cont++;
+            }
        }
   
         }
