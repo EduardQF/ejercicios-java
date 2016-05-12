@@ -3,8 +3,8 @@ package javaejercicio1;
 import java.util.Scanner;
 public class reservaPc {
     public static void main(String[]args){
-         int recerva[] =new int[24];
-        int op=0,pc=0;
+        int recerva[] =new int[24];
+        int op=0,pc=0,contr=0,contl=0;
         Scanner intro=new Scanner(System.in);
         
         do{
@@ -44,14 +44,17 @@ public class reservaPc {
                     }
                     break;
              }
-            System.out.println("\n\n1.recervados\n0.liberados");
+            System.out.println("codigo\n\n1.recervados\n0.liberados");
             for (int i = 0; i <recerva.length; i++) {
               System.out.print(("|  "+recerva[i])+" |");  
+              contr=contr+recerva[i];
               if(i==5||i==11||i==17||i==24)
                     System.out.println("");
             }
             System.out.println("\n");
+            contl=24-contr;
+            System.out.println("computadores ocupados: "+contr+"\ncomputadores libres: "+contl+"\n");
+             contr=0;
         }while(op!=3);
     }
 }
-
